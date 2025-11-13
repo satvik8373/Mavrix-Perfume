@@ -60,14 +60,17 @@ function HomePage() {
 
       {/* 🔥 Fullscreen Video Background - Outside main container */}
       <video
+        key={heroVideo}
         className="fixed top-0 left-0 w-screen h-screen object-cover"
         style={{ zIndex: -2 }}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
       >
         <source src={heroVideo} type="video/webm" />
+        Your browser does not support the video tag.
       </video>
 
       {/* 🔥 Gradient Overlay for better text readability - Darker Warm Tones */}
