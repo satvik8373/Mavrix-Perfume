@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
-const heroVideo = '/src/assets/videos/Animated_Perfume_Spray_Video_Generation.webm';
+import heroVideo from '../assets/videos/Animated_Perfume_Spray_Video_Generation.webm';
 
 function HomePage() {
   const [showNav, setShowNav] = useState(false);
