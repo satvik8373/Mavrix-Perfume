@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch AI - AI Powered Perfumery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#6961ff",
+                    "background-light": "#fdfbf7",
+                    "text-dark": "#343048",
+                    "pastel-rose": "#e7d4e8",
+                    "soft-lavender": "#d2cffc",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"],
+                    "body": ["Nunito Sans", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.5rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+                },
+            },
+        },
+    }
+</script>
+<style>
+    body {
+        background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgQGBgYGBgcICAgJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwIDAwKDAwMDAwMDAoMDAwMDAwKDAwMDAwMDAoMDAwMDAwMDAoMDAwMDAwMDAoMDAwMDAz/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWm5ydn5KjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb2+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(105, 97, 255, 0.1);
+    }
+    .gradient-text {
+        background: linear-gradient(to right, #9a84d0, #b19cd9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+    .glow-button {
+        box-shadow: 0 0 15px rgba(210, 207, 252, 0.7), 0 0 25px rgba(231, 212, 232, 0.5);
+        transition: all 0.3s ease-in-out;
+    }
+    .glow-button:hover {
+        box-shadow: 0 0 20px rgba(210, 207, 252, 1), 0 0 35px rgba(231, 212, 232, 0.8);
+    }
+</style>
+</head>
+<body class="font-body text-text-dark">
+<div class="relative w-full overflow-x-hidden">
+<div class="absolute inset-0 bg-background-light/70 backdrop-blur-sm"></div>
+<div class="relative flex min-h-screen w-full flex-col items-center">
+<div class="flex h-screen w-full max-w-7xl flex-col items-center justify-center p-4 text-center" style='background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgQGBgYGBgcICAgJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwIDAwKDAwMDAwMDAoMDAwMDAwKDAwMDAwMDAoMDAwMDAwMDAoMDAwMDAwMDAoMDAwMDAz/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbW2Nna4uPk5ebn6Onq8vP09fb2+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWm5ydn5KjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb2+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q=="); background-size: cover; background-position: center; background-attachment: fixed;'>
+<div class="flex flex-col items-center gap-6">
+<h1 class="gradient-text font-display text-6xl font-black leading-tight tracking-tighter md:text-8xl">
+                        Stitch AI
+                    </h1>
+<h2 class="font-body text-lg font-normal leading-normal text-text-dark/80 md:text-xl">
+                        Where Artificial Intelligence Unlocks the Art of Personal Fragrance
+                    </h2>
+<button class="glow-button mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 glassmorphism text-text-dark text-base font-bold leading-normal tracking-wide transition-shadow hover:border-soft-lavender/50">
+<span class="truncate">Explore Collection</span>
+</button>
+</div>
+</div>
+<div class="flex w-full max-w-7xl flex-col gap-16 px-4 md:px-8 lg:px-16 py-16">
+<section class="flex flex-col gap-6">
+<h4 class="font-display text-sm font-bold uppercase tracking-widest text-text-dark/70 text-center">Featured Collection</h4>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex items-stretch p-4 gap-6">
+<div class="flex h-full min-w-64 flex-1 flex-col gap-4 rounded-xl glassmorphism shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-t-xl" data-alt="A sleek, modern perfume bottle with dark liquid, labeled Noir Fusion." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADsYGqW7vv1h4x6WuXjf8emgCcdVzf8Kx9Q_-G2va9fKxl6ubze57ff2XZiH7ZTGjbz7wqMVQdAOP7a3qkVw8Jlen1HO5PdrThTMuiErOXn2T94rXRHKs7Y3LbTJ9CM0lnbZYS7nMeCFe61nMtR92DTmu1j71zqbxcM7stFuZcDAMqwOPgV0tz5KBnJ59ctxUW94NbdBo2ZOd7_5SWAhvs0FsLJ1msOEVcEsr947kKIJFVWNO18gmdwOjJmj45ND4ZHUBjIsYzH8U");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+<div>
+<p class="font-display text-lg font-bold text-text-dark">Noir Fusion</p>
+<p class="font-body text-sm text-text-dark/70">Oud &amp; Amber</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-soft-lavender/40 text-text-dark text-sm font-bold tracking-wide transition hover:bg-soft-lavender/70">
+<span class="truncate">Discover</span>
+</button>
+</div>
+</div>
+<div class="flex h-full min-w-64 flex-1 flex-col gap-4 rounded-xl glassmorphism shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-t-xl" data-alt="An elegant perfume bottle with floral elements, labeled Cybernetic Bloom." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6oWNyYTvGJZHicFmxuQLA_IUKZcCWyaRmbyYBkOmnlXG_9qLOzOwkdhtSziexHQFL57HD9x9E1ycloSwuivga8dZYcSe5cx4HqIBOfnfrgseycWkok-MWRvOOcAAXPrabBPxsGHMLKNmx7TsVKMb8v8dxnxyc6Nd8l_xGe-VJORcRd9YdEw4qX93sVPayP_6KBh82tMZZwXz_axKQdkVAtSjU1D30oQQeReOt2A54QKgD7KXvcY5CjTY5mV1RUWzIBUUAfS8pyCM");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+<div>
+<p class="font-display text-lg font-bold text-text-dark">Cybernetic Bloom</p>
+<p class="font-body text-sm text-text-dark/70">Jasmine &amp; Tech</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-soft-lavender/40 text-text-dark text-sm font-bold tracking-wide transition hover:bg-soft-lavender/70">
+<span class="truncate">Discover</span>
+</button>
+</div>
+</div>
+<div class="flex h-full min-w-64 flex-1 flex-col gap-4 rounded-xl glassmorphism shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-t-xl" data-alt="A fresh, minimalist perfume bottle with a light liquid, labeled Data Driven Dew." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA27FvLkn5coHi5d3FZuBi3F_eo9hLxR5r1F0mEooD8OjvZnEwlHfrAC48zPHUKGfclnaFcg6Yo188HK4vtr8GIY4No_REzqkIUwURMwePwokw-P7X1aUxD4mz8ZNK1gZiH-2wi6jSgCiywKJx2a7TZ1nr8Z2yG9ACYUXmoAlsGG2izQmyd8z2PH8TXSzTPVPgnijmrKaJ5FTzHJfawW9tEO14v_uzvhCjjHeStsm65bPBjoh4XCzMbC_oLzwgQq7P0yTDmBx3W8gk");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+<div>
+<p class="font-display text-lg font-bold text-text-dark">Data Driven Dew</p>
+<p class="font-body text-sm text-text-dark/70">Citrus &amp; Fresh</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-soft-lavender/40 text-text-dark text-sm font-bold tracking-wide transition hover:bg-soft-lavender/70">
+<span class="truncate">Discover</span>
+</button>
+</div>
+</div>
+<div class="flex h-full min-w-64 flex-1 flex-col gap-4 rounded-xl glassmorphism shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-t-xl" data-alt="A mysterious, geometric perfume bottle with golden accents, labeled Quantum Essence." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPFfcQrVblwLokgl4XVBya2Mu8qpxgVDSnLl3WnCtBfgww4PL3k8eUCI5HwY0A-i39hwy3fVpRG7RU1BV99IMl5AujWMHFnKvjLMOeQUFBszapwI8jAt1rcRlbBJ4cUEvk7GpXG0Y-YI19gtGjiqdnwEXcIGrXayHZ--dw2HdNeXGMaoktn_zpdi_CKZaP5gTx3g-tskMasvL8yZOi7Myis5gqNs8ooVgeM_pfhf_MWDqSlbAI5wvdTuIhW-m5dirSauL9XIQPRtQ");'></div>
+<div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
+<div>
+<p class="font-display text-lg font-bold text-text-dark">Quantum Essence</p>
+<p class="font-body text-sm text-text-dark/70">Spiced Woods</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-soft-lavender/40 text-text-dark text-sm font-bold tracking-wide transition hover:bg-soft-lavender/70">
+<span class="truncate">Discover</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6">
+<h4 class="font-display text-sm font-bold uppercase tracking-widest text-text-dark/70 text-center">Explore by Category</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4">
+<div class="group relative bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-square glassmorphism overflow-hidden transition-all duration-300 hover:border-soft-lavender/50" data-alt="A vibrant image of blooming flowers representing the Floral category." style='background-image: linear-gradient(0deg, rgba(231, 212, 232, 0.6) 0%, rgba(255, 255, 255, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5PGfuEzmQHEYBU5XJcms9UqCY2SO1TFOOrqS63pFbYJqk3O42Dd47qSaXQW_ZTHhqlm-K0N-TrusNAOk5D_X4r4gf0YH5UxvMji4ptMqHTNVv-awd7zoUEhAG5hNfb9Qo7rLdQSI6Y0le5beMGgz8r4URKOpyFfbwaJQmGPjhWPhAIFSi2ru3Nw9VDG71GMjiYrFAKccDMBRMNEjV2MdtjmKjVdDVCasegIFgS7EPu6tsPYWruDhvSHBAFWZChARt3VXzLWHO4O0");'>
+<div class="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-soft-lavender transition-all duration-300"></div>
+<p class="font-display text-xl font-bold leading-tight text-text-dark">Floral</p>
+</div>
+<div class="group relative bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-square glassmorphism overflow-hidden transition-all duration-300 hover:border-soft-lavender/50" data-alt="A dark, moody image of wood and resin, representing the Oud category." style='background-image: linear-gradient(0deg, rgba(231, 212, 232, 0.6) 0%, rgba(255, 255, 255, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDh9eQTGZfwtfVn5URvsejN0xcrLgZgofxpUdU3GB4NtwFN4anatwYsdxSrGuddci8kFDwdLipPnuNAgX4WkIGdyjG8JGCuYDZmpF48qXz5HWoC711wMQobqvcHg6cw1ICTfYztFR_51Zm-O98dgx-hQEppmTCVyt19XjQw8wgfS5RPrARtG2yfBQUioa1MJnmQ_75pb8Z8kdJUNSsCH_de6QTplI1eRpkCWNCVd8J9fhn6vvZWFf19xDVe0RyOgmDgrCmyuYBncjw");'>
+<div class="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-soft-lavender transition-all duration-300"></div>
+<p class="font-display text-xl font-bold leading-tight text-text-dark">Oud</p>
+</div>
+<div class="group relative bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-square glassmorphism overflow-hidden transition-all duration-300 hover:border-soft-lavender/50" data-alt="A bright, refreshing image of citrus fruits, representing the Citrus category." style='background-image: linear-gradient(0deg, rgba(231, 212, 232, 0.6) 0%, rgba(255, 255, 255, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAHVRDUA_lxv6YP0WpvVJbyUUANOmr9satDBgK63a5LNZni7vOvJjtfe0Kg3PWbhpj6YaT9_3GDN_vILQ7JK0-MpkDC1GBOkXMISzNJ1fAfQ4yYtzc4LjjrFAm6zVHaX4WCVtvlPHHH0jo_u4XTMJcI2w4X3jRc5Ss9msCn_tTlk_YPhyQ5YWqWT5-4uymvfvpqlrZ4gtO3Ve_bwXAXzcuCfyu8OQ7AS3XORC-OKYtc_E3mClR5Qx4ZvB8S0_Fv0aUPBTvAz73caNk");'>
+<div class="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-soft-lavender transition-all duration-300"></div>
+<p class="font-display text-xl font-bold leading-tight text-text-dark">Citrus</p>
+</div>
+<div class="group relative bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-square glassmorphism overflow-hidden transition-all duration-300 hover:border-soft-lavender/50" data-alt="A stylish, androgynous image representing the Unisex category." style='background-image: linear-gradient(0deg, rgba(231, 212, 232, 0.6) 0%, rgba(255, 255, 255, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTNfW1QWZ_IYPYwhmz_pMqOg9a2-KPkRG75NRm5bpyuQW0bLK5Mk8Bty9uwgN-wumO9wTUFDNA3Mxr5uS2SymYztSoyaiGsoez7mU4erLOJxjp2RmwROX7UNqTvGV_0Zkw4u9w1MVoL5240AlmkF7ZVAm-S5SlwtNFvWITeNPLRVCIeVwHqPPi3ywOoj37E-p1uLBz_Ln9zYFyTNg_QtPaMTdzSCwEfRlu78b9NC1wVLer4W1kz0NO6_ygy84BtLDj0fmnyLcKtvE");'>
+<div class="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-soft-lavender transition-all duration-300"></div>
+<p class="font-display text-xl font-bold leading-tight text-text-dark">Unisex</p>
+</div>
+</div>
+</section>
+<section class="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 md:p-12 rounded-xl glassmorphism shadow-2xl">
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-display text-3xl md:text-4xl font-bold gradient-text">Your Personal AI Sommelier</h3>
+<p class="mt-4 font-body text-base text-text-dark/80 leading-relaxed">Our advanced AI analyzes thousands of scent profiles and your unique preferences to curate a fragrance that is exclusively yours. Discover a new level of personalization and find the scent that truly defines you.</p>
+<button class="glow-button mt-8 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 glassmorphism text-text-dark text-base font-bold leading-normal tracking-wide transition-shadow hover:border-soft-lavender/50">
+<span>Find Your Scent</span>
+</button>
+</div>
+<div class="flex-shrink-0">
+<img alt="Abstract 3D rendering of AI neural networks in purple and blue hues" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj_xYH4HKph9NatJ0I8jBhEyC_27kJPsa1kosZkx8OOnTvdwh9Gao-3-rJsxsTTQt3mv5rwTg5g9lJa2FdpCksciSqbHMmLFsaZ_GZqU8Yu33jOaycNUM-ecySFLJ7JXfsRqMVhJFF70zrPskwDuTwayIu-E_9INHJYwdiJLp465uBUp7_DbKa_uv6XBEJAjyIupEt9IY8T-NYppzg0frf8hRPeup_xvkzRmjpPdXl2ENZgWk2VA58vBBal2gIeAsWNyJ9YjQtDCo"/>
+</div>
+</section>
+<section class="p-8 md:p-10 rounded-xl glassmorphism shadow-2xl">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="text-center md:text-left">
+<h4 class="font-display text-2xl font-bold text-text-dark">Join The Elite</h4>
+<p class="font-body text-text-dark/70 mt-1">Unlock exclusive scents and early access.</p>
+</div>
+<form class="flex w-full max-w-md gap-2">
+<input class="flex-grow rounded-lg border-0 bg-white/40 text-text-dark placeholder:text-text-dark/50 focus:ring-2 focus:ring-soft-lavender" placeholder="Enter your email" type="email"/>
+<button class="glow-button rounded-lg bg-pastel-rose px-5 py-2.5 font-bold text-text-dark shadow-lg transition" type="submit">Sign Up</button>
+</form>
+</div>
+</section>
+</div>
+<footer class="w-full bg-white/30 backdrop-blur-sm border-t border-text-dark/10 mt-16">
+<div class="mx-auto max-w-7xl px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<h3 class="font-display text-2xl font-bold gradient-text">Stitch AI</h3>
+<p class="font-body text-sm text-text-dark/60 mt-2">The future of fragrance.</p>
+</div>
+<div>
+<h4 class="font-display font-bold text-text-dark">Links</h4>
+<ul class="mt-4 space-y-2 font-body text-sm text-text-dark/60">
+<li><a class="hover:text-soft-lavender" href="#">About Us</a></li>
+<li><a class="hover:text-soft-lavender" href="#">Collections</a></li>
+<li><a class="hover:text-soft-lavender" href="#">Contact</a></li>
+<li><a class="hover:text-soft-lavender" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-display font-bold text-text-dark">Legal</h4>
+<ul class="mt-4 space-y-2 font-body text-sm text-text-dark/60">
+<li><a class="hover:text-soft-lavender" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-soft-lavender" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-display font-bold text-text-dark">Follow Us</h4>
+<div class="flex mt-4 space-x-4 text-text-dark/60">
+<a class="hover:text-soft-lavender" data-alt="Instagram link" href="#"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"></path></svg></a>
+<a class="hover:text-soft-lavender" data-alt="Twitter link" href="#"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.296 1.634 4.208 3.811 4.649-.69.188-1.452.23-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.588-7.52 2.588-.49 0-.974-.03-1.451-.086 2.667 1.785 5.831 2.825 9.246 2.825 10.411 0 16.121-8.775 15.75-16.345.92-.667 1.716-1.496 2.345-2.433z"></path></svg></a>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-text-dark/10 pt-8 text-center text-sm text-text-dark/50">
+<p>© 2024 Stitch AI. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>
