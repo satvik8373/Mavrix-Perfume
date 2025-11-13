@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd stitch-ai-app && npm install && npm run build",
+  "outputDirectory": "stitch-ai-app/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
