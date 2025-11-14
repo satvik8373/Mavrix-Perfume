@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import heroVideo from '../assets/videos/Animated_Perfume_Spray_Video_Generation.webm';
+import backgroundMusic from '../assets/Music/model-walks-runway-366957.mp3';
 
 function HomePage() {
   const [showNav, setShowNav] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef(null);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,15 +17,26 @@ function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Auto-play music on mount with 50% volume
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+      audioRef.current.play().catch(err => {
+        console.log('Autoplay blocked, user needs to interact first:', err);
+        setIsMuted(true);
+      });
+    }
+  }, []);
+
   const toggleMute = () => {
-    if (videoRef.current) {
-      const newMutedState = !isMuted;
-      videoRef.current.muted = newMutedState;
-      setIsMuted(newMutedState);
-      
-      // Ensure video is playing
-      if (videoRef.current.paused) {
-        videoRef.current.play().catch(err => console.log('Play failed:', err));
+    const newMutedState = !isMuted;
+    setIsMuted(newMutedState);
+    
+    if (audioRef.current) {
+      if (newMutedState) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(err => console.log('Audio play failed:', err));
       }
     }
   };
@@ -88,12 +101,20 @@ function HomePage() {
         Your browser does not support the video tag.
       </video>
 
+      {/* Background Music */}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+      >
+        <source src={backgroundMusic} type="audio/mpeg" />
+      </audio>
+
       {/* Mute Control */}
       <button
         onClick={toggleMute}
-        className="fixed bottom-6 right-6 z-50 backdrop-blur-md bg-orange-500/80 hover:bg-orange-600/90 rounded-full p-2.5 shadow-lg transition-all duration-200 flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-50 bg-orange-500 hover:bg-orange-600 rounded-full p-2.5 transition-all duration-200 flex items-center justify-center focus:outline-none"
         aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
-        style={{ outline: 'none', border: 'none' }}
       >
         {isMuted ? (
           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
