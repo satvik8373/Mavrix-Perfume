@@ -113,9 +113,17 @@ function HomePage() {
       {/* Mute Control */}
       <button
         onClick={toggleMute}
-        className="fixed bottom-6 right-6 z-50 bg-orange-500 hover:bg-orange-600 rounded-full p-2.5 transition-colors duration-200 flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-50 bg-orange-500 hover:bg-orange-600 rounded-full p-2.5 transition-colors duration-200 flex items-center justify-center focus:ring-0 focus:ring-offset-0 active:ring-0"
         aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
-        style={{ boxShadow: 'none', outline: 'none', border: 'none', backdropFilter: 'none', WebkitBackdropFilter: 'none' }}
+        style={{ 
+          boxShadow: 'none', 
+          outline: 'none', 
+          border: 'none', 
+          backdropFilter: 'none', 
+          WebkitBackdropFilter: 'none',
+          background: '#f97316',
+          filter: 'none'
+        }}
       >
         {isMuted ? (
           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
