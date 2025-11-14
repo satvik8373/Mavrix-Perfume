@@ -18,9 +18,9 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    // Auto-play music on mount with 50% volume
+    // Auto-play music on mount with 30% volume
     if (audioRef.current) {
-      audioRef.current.volume = 0.5;
+      audioRef.current.volume = 0.3;
       audioRef.current.play().catch(err => {
         console.log('Autoplay blocked, user needs to interact first:', err);
         setIsMuted(true);
@@ -113,8 +113,9 @@ function HomePage() {
       {/* Mute Control */}
       <button
         onClick={toggleMute}
-        className="fixed bottom-6 right-6 z-50 bg-orange-500 hover:bg-orange-600 rounded-full p-2.5 transition-all duration-200 flex items-center justify-center focus:outline-none"
+        className="fixed bottom-6 right-6 z-50 bg-orange-500 hover:bg-orange-600 rounded-full p-2.5 transition-colors duration-200 flex items-center justify-center"
         aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
+        style={{ boxShadow: 'none', outline: 'none', border: 'none', backdropFilter: 'none', WebkitBackdropFilter: 'none' }}
       >
         {isMuted ? (
           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
