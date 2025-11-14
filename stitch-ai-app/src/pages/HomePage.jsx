@@ -5,7 +5,7 @@ import backgroundMusic from '../assets/Music/model-walks-runway-366957.mp3';
 
 function HomePage() {
   const [showNav, setShowNav] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
   const audioRef = useRef(null);
 
@@ -18,36 +18,9 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    // Auto-play music on mount with 50% volume
+    // Set volume to 50% but don't auto-play
     if (audioRef.current) {
       audioRef.current.volume = 0.5;
-      
-      // Try to play immediately
-      const playPromise = audioRef.current.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(err => {
-          console.log('Autoplay blocked, will try on first user interaction');
-          setIsMuted(true);
-          
-          // Try to play on any user interaction
-          const playOnInteraction = () => {
-            if (audioRef.current && isMuted) {
-              audioRef.current.play().then(() => {
-                setIsMuted(false);
-                // Remove listeners after successful play
-                document.removeEventListener('click', playOnInteraction);
-                document.removeEventListener('scroll', playOnInteraction);
-                document.removeEventListener('keydown', playOnInteraction);
-              }).catch(() => {});
-            }
-          };
-          
-          document.addEventListener('click', playOnInteraction, { once: true });
-          document.addEventListener('scroll', playOnInteraction, { once: true });
-          document.addEventListener('keydown', playOnInteraction, { once: true });
-        });
-      }
     }
   }, []);
 
