@@ -21,10 +21,33 @@ function HomePage() {
     // Auto-play music on mount with 50% volume
     if (audioRef.current) {
       audioRef.current.volume = 0.5;
-      audioRef.current.play().catch(err => {
-        console.log('Autoplay blocked, user needs to interact first:', err);
-        setIsMuted(true);
-      });
+      
+      // Try to play immediately
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log('Autoplay blocked, will try on first user interaction');
+          setIsMuted(true);
+          
+          // Try to play on any user interaction
+          const playOnInteraction = () => {
+            if (audioRef.current && isMuted) {
+              audioRef.current.play().then(() => {
+                setIsMuted(false);
+                // Remove listeners after successful play
+                document.removeEventListener('click', playOnInteraction);
+                document.removeEventListener('scroll', playOnInteraction);
+                document.removeEventListener('keydown', playOnInteraction);
+              }).catch(() => {});
+            }
+          };
+          
+          document.addEventListener('click', playOnInteraction, { once: true });
+          document.addEventListener('scroll', playOnInteraction, { once: true });
+          document.addEventListener('keydown', playOnInteraction, { once: true });
+        });
+      }
     }
   }, []);
 
