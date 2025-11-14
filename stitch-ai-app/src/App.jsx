@@ -5,12 +5,10 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import BuyerPanel from './pages/BuyerPanel';
-import MusicPlayer from './components/MusicPlayer';
 
 function App() {
   return (
     <Router>
-      <MusicPlayer />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductListingPage />} />
