@@ -5,7 +5,7 @@ import backgroundMusic from '../assets/Music/model-walks-runway-366957.mp3';
 
 function HomePage() {
   const [showNav, setShowNav] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef(null);
   const audioRef = useRef(null);
 
@@ -18,9 +18,13 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    // Set volume to 50% but don't auto-play
+    // Auto-play music on mount with 50% volume
     if (audioRef.current) {
       audioRef.current.volume = 0.5;
+      audioRef.current.play().catch(err => {
+        console.log('Autoplay blocked, user needs to interact first:', err);
+        setIsMuted(true);
+      });
     }
   }, []);
 
